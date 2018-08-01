@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8"/>
+    <title>Title</title>
+<stlye>
+   * {
+    box-sizing: border-box;
+    font-family: Arial, Helvetica, sans-serif;
+    }
+</stlye>
+</head>
+<body>
+<div class="topnav"><a href="/add">Add a Message</a></div>
+<table>
+    <tr>
+        <th>Sentby</th>
+        <th>Post Date</th>
+        <th>Image Url</th>
+        <th>Actions</th>
+    </tr>
+    <tr th:each="message : ${messages}"}>
+    <td th:text="${message.sentby}"></td>
+    <td th:text="${message.postdate}"></td>
+    <td th:text="${message.imageurl}"></td>
+
+    <td>
+
+
+        <a th:href="@{/update/{id}(id=${message.id})}">Update</a>
+        <a th:href="@{/detail/{id}(id=${message.id})}">Show</a>
+    </td>
+    </tr>
+</table>
+</body>
+</html>
